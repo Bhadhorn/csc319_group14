@@ -83,10 +83,11 @@ public class MapDataDrawermp {
      * scale values 0-255, scaled based on min/max values in grid
      */
     public void drawMap(Graphics g) {
-
+        int minVa = findMinValue();
+        int maxVa = findMaxValue();
         for (int x = 0; x < 480; x++) {
             for (int y = 0; y < 844; y++) {
-                int c = (grid[x][y] - findMinValue()) * 255 / ((findMaxValue() - findMinValue()));
+                int c = (grid[x][y] - minVa)  / ((maxVa- minVa)/225);
                 g.setColor(new Color(c, c, c));
                 g.fillRect(y, x, 1, 1);
             }
@@ -107,23 +108,48 @@ public class MapDataDrawermp {
         int nd;
         int rd;
         int min;
-        
-        for(int i = 0;i<=grid[0].length-1;i++){
-            int current = grid[row][i];
-            st = grid[row-1][i+1];
-            nd = grid [row][i+1];
-            rd = grid [row+1][i+1];
-            //Find the far from the current value.
-            int fartop = Math.abs(current - st);
-            int farmid = Math.abs(current - nd);
-            int farlow = Math.abs(current - rd);
+        for(int i =0 ; i < 844 ; i++){
+            g.fillRect(i, row, 1, 1);
         }
-       
-        
-        
-        
-        
-        return -1;
+//        for(int i = 1;i<=grid[0].length-1;i++){
+//            System.out.println(grid[row][i]);
+//            
+//            int current = grid[row][i];
+//            st = grid[row-1][i];
+//            nd = grid [row][i];
+//            rd = grid [row+1][i];
+//            //Find the far from the current value.
+//            int fartop = Math.abs(start - st);
+//            int farmid = Math.abs(start - nd);
+//            int farlow = Math.abs(start - rd);
+//            
+//            min = Math.min(Math.min(fartop, farmid),farlow);
+//            
+//            if(min == farmid){
+//                 g.fillRect(i, row, 1, 1);
+//                 start = grid [row ][i];
+//            }
+//            if(min == fartop && min != farmid && min != farlow){
+//                g.fillRect(i, row-1, 1, 1);
+//                 start = grid [row-1 ][i];
+//            }
+//            if(min == farlow){
+//                g.fillRect(i, row+1, 1, 1);
+//                 start = grid [row+1 ][i];
+//            }
+//            if(min == farlow && min == fartop){
+//                int a = (int )(Math. random() * 10 + 1);
+//                if(a < 5){
+//                g.fillRect(i, row-1, 1, 1);
+//                 start = grid [row-1 ][i];
+//                }else{
+//                g.fillRect(i, row+1, 1, 1);
+//                 start = grid [row+1 ][i];
+//                }
+//            }
+            
+     //   }
+      return -1; 
     }
 
     /**
