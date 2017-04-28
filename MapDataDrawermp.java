@@ -65,7 +65,17 @@ public class MapDataDrawermp {
     }
     public int indexOfMinInColum(int colum) {
         
-        return-1;
+int mincolum = grid[0][colum];
+        for(int a = 0 ; a < grid.length ; a++){
+            if(grid[a][colum] < mincolum){
+                mincolum = grid[a][colum];
+            }
+          
+        }
+   return mincolum;
+
+       
+    
          /**
      * @param col the column of the grid to check
      * @return the index of the row with the lowest value in the given col for
